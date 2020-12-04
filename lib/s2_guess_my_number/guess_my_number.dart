@@ -175,8 +175,7 @@ class _GuessMyNumberState extends State<GuessMyNumber> {
                                 });
                               },
                               inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'^[1-9][0-9]?$|^100$')),
+                                FilteringTextInputFormatter.allow(RegExp(r'^[1-9][0-9]?$|^100$')),
                               ],
                             ),
                             _addSizedBox(24),

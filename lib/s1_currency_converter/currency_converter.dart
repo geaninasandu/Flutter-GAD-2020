@@ -46,8 +46,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
   /// or null otherwise
   void _handleSubmit() {
     setState(() {
-      _convertedAmount =
-          (_formKey.currentState.validate()) ? 4.87 * _amount : null;
+      _convertedAmount = (_formKey.currentState.validate()) ? 4.87 * _amount : null;
     });
   }
 
@@ -125,10 +124,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
               ),
             ),
           ),
-          Text(
-              (_convertedAmount != null)
-                  ? _convertedAmount.toStringAsFixed(2) + ' RON'
-                  : '',
+          Text((_convertedAmount != null) ? _convertedAmount.toStringAsFixed(2) + ' RON' : '',
               style: const TextStyle(
                 fontSize: 25.0,
               ))

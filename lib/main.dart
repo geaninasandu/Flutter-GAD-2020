@@ -1,4 +1,4 @@
-import 's2_number_shapes/number_shapes.dart' as app;
+import 's2_guess_my_number/guess_my_number.dart' as app;
 
 void main() {
   app.main();
