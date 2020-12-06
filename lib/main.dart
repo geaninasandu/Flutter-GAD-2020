@@ -1,4 +1,4 @@
-import 's2_guess_my_number/guess_my_number.dart' as app;
+import 's3_basic_phrases/basic_phrases.dart' as app;
 
 void main() {
   app.main();
