@@ -30,7 +30,6 @@ class BasicPhrases extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Basic Phrases'),
         centerTitle: true,
-        backgroundColor: Colors.blue[800],
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(8.0),

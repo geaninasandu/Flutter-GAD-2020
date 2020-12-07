@@ -1,5 +1,3 @@
-import 's3_basic_phrases/basic_phrases.dart' as app;
+import 's3_tic_tac_toe/main.dart' as app;
 
-void main() {
-  app.main();
-}
+void main() => app.main();

@@ -15,7 +15,7 @@ class PhraseContainer extends StatefulWidget {
 }
 
 class _PhraseContainerState extends State<PhraseContainer> {
-  final AudioCache player = AudioCache();
+  final AudioCache _player = AudioCache();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _PhraseContainerState extends State<PhraseContainer> {
           final String audioUrl =
               (widget.language == Language.en) ? phrases[widget.index].englishSound : phrases[widget.index].frenchSound;
 
-          await player.play(audioUrl);
+          await _player.play(audioUrl);
         },
         padding: const EdgeInsets.all(8.0),
         child: Center(
