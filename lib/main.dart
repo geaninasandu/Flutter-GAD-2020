@@ -1,3 +1,3 @@
-import 's3_tic_tac_toe/main.dart' as app;
+import 's4_movie_list/main.dart' as app;
 
 void main() => app.main();
