@@ -3,11 +3,10 @@ import 'package:flutter_gad_2020/s4_movie_list/enums/genre.dart';
 
 import '../movie_list.dart';
 
-// ignore: must_be_immutable
 class FiltersPanel extends StatefulWidget {
-  FiltersPanel({Key key, this.parent}) : super(key: key);
+  const FiltersPanel({Key key, this.parent}) : super(key: key);
 
-  MovieListState parent;
+  final MovieListState parent;
 
   @override
   _FiltersPanelState createState() => _FiltersPanelState();
