@@ -1,3 +1,11 @@
-import 's4_movie_list/main.dart' as app;
+import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 
-void main() => app.main();
+import 's6_unsplash_photos/main.dart' as app;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterConfig.loadEnvVariables();
+
+  app.main();
+}
