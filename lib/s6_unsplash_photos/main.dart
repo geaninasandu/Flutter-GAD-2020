@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/get_photos.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/actions/index.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/data/unsplash_api.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/middleware/app_middleware.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/app_state.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/epics/app_epics.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/presentation/home_page.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/reducer/reducer.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 
 void main() {
   final Client client = Client();
   final UnsplashApi unsplashApi = UnsplashApi(client: client);
-  final AppMiddleware appMiddleware = AppMiddleware(unsplashApi: unsplashApi);
+  final AppEpics appEpics = AppEpics(unsplashApi: unsplashApi);
   final AppState initialState = AppState();
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: initialState,
-    middleware: appMiddleware.middleware,
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(appEpics.epics),
+    ],
   );
 
   store.dispatch(GetPhotos.start(initialState.page));

@@ -1,9 +1,4 @@
-library get_photos;
-
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/photo.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'get_photos.freezed.dart';
+part of actions;
 
 @freezed
 abstract class GetPhotos with _$GetPhotos {

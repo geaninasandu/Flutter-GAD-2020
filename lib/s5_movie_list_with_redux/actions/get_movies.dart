@@ -1,9 +1,4 @@
-library get_movies;
-
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/movie.dart';
-
-part 'get_movies.freezed.dart';
+part of actions;
 
 @freezed
 abstract class GetMovies with _$GetMovies {

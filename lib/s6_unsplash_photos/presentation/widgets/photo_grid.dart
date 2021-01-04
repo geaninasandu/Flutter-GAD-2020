@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/photo.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class PhotoGrid extends StatelessWidget {

@@ -1,32 +1,51 @@
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/get_photos.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/set_orientation.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/set_query.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/app_state.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/actions/index.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
+import 'package:redux/redux.dart';
 
-AppState reducer(AppState state, dynamic action) {
-  final AppStateBuilder builder = state.toBuilder();
+Reducer<AppState> reducer = combineReducers(<Reducer<AppState>>[
+  TypedReducer<AppState, GetPhotosStart>(_getPhotosStart),
+  TypedReducer<AppState, GetPhotosSuccessful>(_getPhotosSuccessful),
+  TypedReducer<AppState, GetPhotosError>(_getPhotosError),
+  TypedReducer<AppState, SetOrientation>(_setOrientation),
+  TypedReducer<AppState, SetQuery>(_setQuery),
+]);
 
-  if (action is GetPhotosStart) {
+AppState _getPhotosStart(AppState state, GetPhotosStart action) {
+  return state.rebuild((AppStateBuilder builder) {
     builder.isLoading = true;
-  } else if (action is GetPhotosSuccessful) {
+  });
+}
+
+AppState _getPhotosSuccessful(AppState state, GetPhotosSuccessful action) {
+  return state.rebuild((AppStateBuilder builder) {
     builder
       ..photos.addAll(action.photos)
       ..isLoading = false
       ..page = builder.page + 1;
-  } else if (action is GetPhotosError) {
+  });
+}
+
+AppState _getPhotosError(AppState state, GetPhotosError action) {
+  return state.rebuild((AppStateBuilder builder) {
     builder.isLoading = false;
-  } else if (action is SetOrientation) {
+  });
+}
+
+AppState _setOrientation(AppState state, SetOrientation action) {
+  return state.rebuild((AppStateBuilder builder) {
     builder
       ..orientation = action.orientation
       ..page = 1
       ..photos.clear();
-  } else if (action is SetQuery) {
+  });
+}
+
+AppState _setQuery(AppState state, SetQuery action) {
+  return state.rebuild((AppStateBuilder builder) {
     builder
       ..query = action.query
       ..orientation = null
       ..page = 1
       ..photos.clear();
-  }
-
-  return builder.build();
+  });
 }

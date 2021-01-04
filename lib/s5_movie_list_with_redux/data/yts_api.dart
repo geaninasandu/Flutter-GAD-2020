@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/movie.dart';
+import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/index.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 

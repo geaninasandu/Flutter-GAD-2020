@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/get_photos.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/set_orientation.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/actions/set_query.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/actions/index.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/containers/is_loading_container.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/containers/orientation_container.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/containers/photos_container.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/app_state.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/photo.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
 import 'package:flutter_gad_2020/s6_unsplash_photos/presentation/widgets/photo_grid.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
@@ -33,33 +30,47 @@ class HomePage extends StatelessWidget {
 
               return Column(
                 children: <Widget>[
-                  OrientationContainer(builder: (BuildContext context, String orientation) {
-                    return DropdownButton<String>(
-                        value: orientation,
-                        hint: const Text('All'),
-                        onChanged: (String value) {
-                          StoreProvider.of<AppState>(context)
-                            ..dispatch(SetOrientation(value))
-                            ..dispatch(const GetPhotos.start(1));
-                        },
-                        items: <String>[null, 'landscape', 'portrait', 'squarish'].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value ?? 'All'),
-                          );
-                        }).toList());
-                  }),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextField(
-                      decoration: const InputDecoration(
-                        hintText: 'Search photo...',
-                        suffix: Icon(Icons.search),
-                      ),
-                      onSubmitted: (String value) {
-                        StoreProvider.of<AppState>(context).dispatch(SetQuery(value));
-                        StoreProvider.of<AppState>(context).dispatch(const GetPhotos.start(1));
-                      },
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: TextField(
+                              decoration: const InputDecoration(
+                                hintText: 'Search photo...',
+                                suffix: Icon(Icons.search),
+                              ),
+                              onSubmitted: (String value) {
+                                StoreProvider.of<AppState>(context).dispatch(SetQuery(value));
+                                StoreProvider.of<AppState>(context).dispatch(const GetPhotos.start(1));
+                              },
+                            ),
+                          ),
+                        ),
+                        OrientationContainer(
+                          builder: (BuildContext context, String orientation) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: DropdownButton<String>(
+                                  value: orientation,
+                                  hint: const Text('All'),
+                                  onChanged: (String value) {
+                                    StoreProvider.of<AppState>(context)
+                                      ..dispatch(SetOrientation(value))
+                                      ..dispatch(const GetPhotos.start(1));
+                                  },
+                                  items: <String>[null, 'landscape', 'portrait', 'squarish'].map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value ?? 'All'),
+                                    );
+                                  }).toList()),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(

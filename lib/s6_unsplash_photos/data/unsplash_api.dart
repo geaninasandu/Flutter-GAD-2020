@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/photo.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 

@@ -1,17 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/actions/get_movies.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/actions/set_genres.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/actions/set_order_by.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/actions/set_quality.dart';
+import 'package:flutter_gad_2020/s5_movie_list_with_redux/actions/index.dart';
 import 'package:flutter_gad_2020/s5_movie_list_with_redux/containers/genres_container.dart';
 import 'package:flutter_gad_2020/s5_movie_list_with_redux/containers/is_loading_container.dart';
 import 'package:flutter_gad_2020/s5_movie_list_with_redux/containers/movies_container.dart';
 import 'package:flutter_gad_2020/s5_movie_list_with_redux/containers/order_by_container.dart';
 import 'package:flutter_gad_2020/s5_movie_list_with_redux/containers/quality_container.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/app_state.dart';
-import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/movie.dart';
+import 'package:flutter_gad_2020/s5_movie_list_with_redux/models/index.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/src/store.dart';
 
 class HomePage extends StatelessWidget {

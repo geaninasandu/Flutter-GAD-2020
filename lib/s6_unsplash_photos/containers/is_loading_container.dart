@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gad_2020/s6_unsplash_photos/models/app_state.dart';
+import 'package:flutter_gad_2020/s6_unsplash_photos/models/index.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
