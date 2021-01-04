@@ -16,8 +16,7 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
   final String wireName = 'Photo';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Photo object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object> serialize(Serializers serializers, Photo object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'urls',
       serializers.serialize(object.urls, specifiedType: const FullType(Url)),
@@ -38,8 +37,7 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'urls':
-          result.urls.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Url)) as Url);
+          result.urls.replace(serializers.deserialize(value, specifiedType: const FullType(Url)) as Url);
           break;
       }
     }
@@ -55,12 +53,10 @@ class _$UrlSerializer implements StructuredSerializer<Url> {
   final String wireName = 'Url';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Url object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object> serialize(Serializers serializers, Url object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'regular',
-      serializers.serialize(object.regular,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.regular, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -78,8 +74,7 @@ class _$UrlSerializer implements StructuredSerializer<Url> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'regular':
-          result.regular = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.regular = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -100,12 +95,9 @@ class _$AppState extends AppState {
   @override
   final String query;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) =>
-      (new AppStateBuilder()..update(updates)).build();
+  factory _$AppState([void Function(AppStateBuilder) updates]) => (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._(
-      {this.photos, this.page, this.isLoading, this.orientation, this.query})
-      : super._() {
+  _$AppState._({this.photos, this.page, this.isLoading, this.orientation, this.query}) : super._() {
     if (photos == null) {
       throw new BuiltValueNullFieldError('AppState', 'photos');
     }
@@ -118,8 +110,7 @@ class _$AppState extends AppState {
   }
 
   @override
-  AppState rebuild(void Function(AppStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  AppState rebuild(void Function(AppStateBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
@@ -137,11 +128,7 @@ class _$AppState extends AppState {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc($jc($jc(0, photos.hashCode), page.hashCode),
-                isLoading.hashCode),
-            orientation.hashCode),
+    return $jf($jc($jc($jc($jc($jc(0, photos.hashCode), page.hashCode), isLoading.hashCode), orientation.hashCode),
         query.hashCode));
   }
 
@@ -213,19 +200,14 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     try {
       _$result = _$v ??
           new _$AppState._(
-              photos: photos.build(),
-              page: page,
-              isLoading: isLoading,
-              orientation: orientation,
-              query: query);
+              photos: photos.build(), page: page, isLoading: isLoading, orientation: orientation, query: query);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'photos';
         photos.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'AppState', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('AppState', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -238,8 +220,7 @@ class _$Photo extends Photo {
   @override
   final Url urls;
 
-  factory _$Photo([void Function(PhotoBuilder) updates]) =>
-      (new PhotoBuilder()..update(updates)).build();
+  factory _$Photo([void Function(PhotoBuilder) updates]) => (new PhotoBuilder()..update(updates)).build();
 
   _$Photo._({this.urls}) : super._() {
     if (urls == null) {
@@ -248,8 +229,7 @@ class _$Photo extends Photo {
   }
 
   @override
-  Photo rebuild(void Function(PhotoBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Photo rebuild(void Function(PhotoBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   PhotoBuilder toBuilder() => new PhotoBuilder()..replace(this);
@@ -312,8 +292,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
         _$failedField = 'urls';
         urls.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Photo', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('Photo', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -326,8 +305,7 @@ class _$Url extends Url {
   @override
   final String regular;
 
-  factory _$Url([void Function(UrlBuilder) updates]) =>
-      (new UrlBuilder()..update(updates)).build();
+  factory _$Url([void Function(UrlBuilder) updates]) => (new UrlBuilder()..update(updates)).build();
 
   _$Url._({this.regular}) : super._() {
     if (regular == null) {
@@ -336,8 +314,7 @@ class _$Url extends Url {
   }
 
   @override
-  Url rebuild(void Function(UrlBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Url rebuild(void Function(UrlBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   UrlBuilder toBuilder() => new UrlBuilder()..replace(this);
@@ -355,8 +332,7 @@ class _$Url extends Url {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Url')..add('regular', regular))
-        .toString();
+    return (newBuiltValueToStringHelper('Url')..add('regular', regular)).toString();
   }
 }
 
